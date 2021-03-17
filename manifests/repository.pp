@@ -42,7 +42,10 @@ class bareos::repository (
 
   if $gpg_key_fingerprint {
     $_gpg_key_fingerprint = $gpg_key_fingerprint
-  } elsif $release == 'latest' or versioncmp($release, '18.2') >= 0 {
+  } elsif $release == 'latest' or versioncmp($release, '19.2') >= 0 {
+    # >= bareos-19.2
+    $_gpg_key_fingerprint = '641A 1497 F1B1 1BEA 945F 840F E5D8 82B2 8657 AE28'
+  } elsif versioncmp($release, '18.2') >= 0 {
     # >= bareos-18.2
     if $subscription {
       $_gpg_key_fingerprint = '641A 1497 F1B1 1BEA 945F 840F E5D8 82B2 8657 AE28'
